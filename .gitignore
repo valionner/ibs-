@@ -1,0 +1,9 @@
+# Dev-only dependencies for tools/test-behaviour.js (jsdom). Nothing here is
+# needed to serve the page — the landing page has no build step.
+node_modules/
+package-lock.json
+package.json
+
+# OS noise
+.DS_Store
+Thumbs.db

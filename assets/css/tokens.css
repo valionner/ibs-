@@ -1,0 +1,99 @@
+/* ==========================================================================
+   IBSS — Design Tokens
+   Single source of truth for colour, type, spacing, radius, and motion.
+   Palette is strictly: deep green + white (+ cream alternation + alert red
+   for scarcity badges ONLY).
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   FONTS — Self-hosted Cairo (variable, weights 200–1000).
+   Two subset files only: Arabic (~31KB) + Latin (~34KB) = ~63KB total.
+   Latin is listed first so Latin glyphs ("COD", digits, "PDF") use Cairo Latin
+   and Arabic glyphs fall through to the Arabic subset.
+   -------------------------------------------------------------------------- */
+@font-face {
+  font-family: 'Cairo';
+  font-style: normal;
+  font-weight: 200 1000;
+  font-display: swap;
+  src: url('../fonts/cairo-latin-wght.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Cairo';
+  font-style: normal;
+  font-weight: 200 1000;
+  font-display: swap;
+  src: url('../fonts/cairo-arabic-wght.woff2') format('woff2-variations');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1,
+    U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF,
+    U+FE70-FE74, U+FE76-FEFC;
+}
+
+:root {
+  /* ---- Colour ---------------------------------------------------------- */
+  --green-900: #0A3A2A;
+  --green-700: #0F6B3E; /* base brand — 6.58:1 with white (AA on text)     */
+  --green-500: #1A8A52; /* 4.37:1 with white — DECOR/ICONS ONLY, no text   */
+  --green-100: #E6F0EA;
+  --cream: #F6F8F6;
+  --white: #FFFFFF;
+  --text: #0F1A14; /* 17.82:1 on white                                  */
+  --muted: #5A6B60; /* 5.67:1 on white                                   */
+  --alert: #C0392B; /* 5.44:1 with white — scarcity badges only          */
+  --alert-dark: #8E2A20;
+  --line: #E2E8E3;
+
+  /* On-dark translucency (all ≥ 5:1 against --green-700) */
+  --on-dark: #FFFFFF;
+  --on-dark-soft: rgba(255, 255, 255, 0.86);
+  --on-dark-line: rgba(255, 255, 255, 0.22);
+  --on-dark-tint: rgba(255, 255, 255, 0.1);
+
+  /* ---- Radius ---------------------------------------------------------- */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  /* ---- Space ----------------------------------------------------------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* ---- Type ------------------------------------------------------------ */
+  --font-display: 'Cairo', system-ui, sans-serif;
+  --font-body: 'Cairo', system-ui, sans-serif;
+
+  /* Fluid type — mobile-first. min at 360px, max at 1024px viewport.       */
+  --fs-h1: clamp(2.1rem, 1.35rem + 3.4vw, 3.5rem);
+  --fs-h2: clamp(1.6rem, 1.15rem + 2vw, 2.5rem);
+  --fs-h3: clamp(1.15rem, 1.02rem + 0.5vw, 1.35rem);
+  --fs-lead: clamp(1.02rem, 0.96rem + 0.32vw, 1.18rem);
+  --fs-body: clamp(0.98rem, 0.94rem + 0.2vw, 1.06rem);
+  --fs-sm: 0.875rem;
+  --fs-xs: 0.8125rem;
+
+  /* ---- Layout ---------------------------------------------------------- */
+  --shell: 1180px;
+  --bar-h: 48px;
+  --sticky-h: 68px;
+  --tap: 44px; /* minimum touch target, WCAG 2.5.5                    */
+
+  /* ---- Motion ---------------------------------------------------------- */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur: 240ms;
+
+  /* ---- Elevation ------------------------------------------------------- */
+  --shadow-sm: 0 1px 2px rgba(10, 58, 42, 0.06), 0 2px 8px rgba(10, 58, 42, 0.05);
+  --shadow-md: 0 6px 18px rgba(10, 58, 42, 0.09);
+  --shadow-lg: 0 18px 44px rgba(10, 58, 42, 0.16);
+}
